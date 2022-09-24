@@ -4,7 +4,7 @@
 Simple Calculator
 --------------------------------------------------------------------------
 License:   
-Copyright 2022 - Erik Welsh
+Copyright 2022 - Liam Merva
 
 Redistribution and use in source and binary forms, with or without 
 modification, are permitted provided that the following conditions are met:
@@ -73,7 +73,11 @@ operators = {
     "+" : operator.add,
     "-" : operator.sub,
     "*" : operator.mul,
-    "/" : operator.truediv
+    "/" : operator.truediv,
+    ">>": operator.__rshift__,
+    "<<": operator.lshift,
+    "%": operator.mod,
+    "**": operator.pow
 }
 
 # ------------------------------------------------------------------------
@@ -96,7 +100,7 @@ def get_user_input():
     try:
         number1 = float(input("Enter first number : "))
         number2 = float(input("Enter second number: "))
-        op      = input("Enter function (valid values are +, -, *, /): ")
+        op      = input("Enter function (valid values are +, -, *, /, >>, <<, %): ")
     
         func    = operators.get(op)
     except:
