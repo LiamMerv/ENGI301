@@ -61,7 +61,7 @@ operators = {
     "-" : operator.sub,
     "*" : operator.mul,
     "/" : operator.truediv,
-    ">>": operator.__rshift__,
+    ">>": operator.rshift,
     "<<": operator.lshift,
     "%": operator.mod,
     "**": operator.pow
