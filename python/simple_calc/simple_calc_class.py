@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 --------------------------------------------------------------------------
-Simple Calculator
+Blink LED
 --------------------------------------------------------------------------
 License:   
 Copyright 2022 - Liam Merva
@@ -33,21 +33,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------
 
-Simple calculator that will 
-  - Take in two numbers from the user
-  - Take in an operator from the user
-  - Perform the mathematical operation and provide the number to the user
-  - Repeat
 
-Operations:
-  - addition
-  - subtraction
-  - multiplication
-  - division
-
-Error conditions:
-  - Invalid operator --> Program should exit
-  - Invalid number   --> Program should exit
 
 --------------------------------------------------------------------------
 """
@@ -55,6 +41,7 @@ Error conditions:
 # NOTE - Add import statements to allow access to Python library functions
 
 import operator
+import six
 
 # ------------------------------------------------------------------------
 # Constants
@@ -80,6 +67,7 @@ operators = {
     "**": operator.pow
 }
 
+six.moves.input()
 # ------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------
@@ -100,7 +88,7 @@ def get_user_input():
     try:
         number1 = float(input("Enter first number : "))
         number2 = float(input("Enter second number: "))
-        op      = input("Enter function (valid values are +, -, *, /, >>, <<, %): ")
+        op      = input("Enter function (valid values are +, -, *, /, >>, <<, %, **): ")
     
         func    = operators.get(op)
     except:
