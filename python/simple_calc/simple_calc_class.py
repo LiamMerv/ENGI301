@@ -55,7 +55,7 @@ Error conditions:
 # NOTE - Add import statements to allow access to Python library functions
 
 import operator
-import six
+#import six
 
 # ------------------------------------------------------------------------
 # Constants
@@ -81,7 +81,7 @@ operators = {
     "**": operator.pow
 }
 
-six.moves.input()
+#six.moves.input()
 # ------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------
@@ -100,9 +100,17 @@ def get_user_input():
          (None, None, None) if the inputs are invalid
     """
     try:
-        number1 = float(input("Enter first number : "))
-        number2 = float(input("Enter second number: "))
-        op      = input("Enter function (valid values are +, -, *, /, >>, <<, %, **): ")
+        op = input("Enter function (valid values are +, -, *, /, >>, <<, %, **): ")
+        
+        if op == ">>":
+            number1 = int(input("Enter first number : "))
+            number2 = int(input("Enter second number: "))
+        elif op == "<<":
+            number1 = int(input("Enter first number : "))
+            number2 = int(input("Enter second number: "))
+        else:
+            number1 = float(input("Enter first number : "))
+            number2 = float(input("Enter second number: "))
     
         func    = operators.get(op)
     except:
@@ -132,7 +140,10 @@ if __name__ == "__main__":
     # NOTE -   - Get the input from the user (i.e. use function created above)    
     # NOTE -   - Check that all inputs are valid
     # NOTE -   - Execute the function on the numbers and print the results
-
+    try:
+        input = raw_input
+    except NameError:
+        pass
     while True:
         (num1, num2, func) = get_user_input()
         
