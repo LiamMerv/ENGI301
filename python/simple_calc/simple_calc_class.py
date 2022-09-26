@@ -55,13 +55,12 @@ Error conditions:
 # NOTE - Add import statements to allow access to Python library functions
 
 import operator
-#import six
 
 # ------------------------------------------------------------------------
 # Constants
 # ------------------------------------------------------------------------
 
-# NOTE - No constants are needed for this example 
+# NOTE - No constants are needed 
 
 # ------------------------------------------------------------------------
 # Global variables
@@ -81,7 +80,6 @@ operators = {
     "**": operator.pow
 }
 
-#six.moves.input()
 # ------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------
