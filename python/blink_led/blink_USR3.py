@@ -33,7 +33,13 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
 THE POSSIBILITY OF SUCH DAMAGE.
 --------------------------------------------------------------------------
 
-User will blink the LED at x Hz/second
+Program that will
+    - Blink USR3 LED at a 5 Hertz frequency
+
+Operation:
+    - LED On/Off Cycling (5 full on/off cycles per second)
+
+No error conditions are present in this code
 
 --------------------------------------------------------------------------
 """
@@ -44,27 +50,29 @@ import time
 # Constants
 # ------------------------------------------------------------------------
 
-# NOTE - No constants are needed for this example 
+# NOTE - No constants are needed 
 
 # ------------------------------------------------------------------------
 # Global variables
 # ------------------------------------------------------------------------
-
-# NOTE - Need a global variable to map an operator string (e.g. "+") to 
-# NOTE - the appropriate function.
-
-
+#Establishes LED target on PocketBeagle
+LEDs = ["USR3"]
+delay = 0.2
 # ------------------------------------------------------------------------
 # Functions
 # ------------------------------------------------------------------------
+#Turns LED on/off based on the cycles dictated by the delay variable
+for LED in LEDs:
+    print(LED)
+    GPIO.setup(LED, GPIO.OUT)
 
-# NOTE - Add function "get_user_input()".  This function will:
-# NOTE -     """Get input from the user.
-# NOTE -          Returns tuple:  (number, number, function) or
-# NOTE -          (None, None, None) if inputs invalid
-# NOTE -     """
-# NOTE - 
-# NOTE - User input is generally returned as a string and must be translated.
+while True:
+    for LED in LEDs:
+        GPIO.output(LED, 1)
+    time.sleep(delay)
+    for LED in LEDs:
+        GPIO.output(LED, 0)
+    time.sleep(delay)
 
 # End def
 
@@ -72,12 +80,4 @@ import time
 # ------------------------------------------------------------------------
 # Main script
 # ------------------------------------------------------------------------
-
-# NOTE - The python variable "__name__" is provided by the language and can 
-# NOTE - be used to determine how the file is being executed.  For example,
-# NOTE - if the program is being executed on the command line:
-# NOTE -   python3 simple_calc.py
-# NOTE - then the "__name__" will be the string:  "__main__".  If the file 
-# NOTE - is being imported into another python file:
-# NOTE -   import simple_calc
-# NOTE - the the "__name__" will be the module name, i.e. the string "simple_calc"
+#No Main script is necessary for this program
