@@ -1,1 +1,11 @@
+This README file is intended to describe how the software model for the Automatic Plant Maintainence Device works
 
+The goal of this model is to dynamically measure the humidity levels within the soil of a plant and the light levels within the microenvironment of the plant and correspondingly adjust the humidity and light ranges to optimal levels by activating a pump that delivers water to the soil of the plant and an LED to increase the ambient light. 
+
+First, the user enters the type of flower species that the plant is, as this will dictate what the optimal levels of humidity and light should be for the given plant. Since this model is a foundation for greater work, only two inputs (flowering/foliage) are accepted. The program will then not run if the input is not one of these two values.
+
+The program then sets up all of the components necessary to run the theoretical hardware model, such as the PocketBeagle, humidity/light sensors, pump and LED. Once the program has initiated, every three seconds, the humidity and light sensors will measure and gather the necessary data. This data is then checked to see if it is within the optimal range given the plant species. If the humidity and light levels are within the range, the pump and LED will turn off/remain off. However, if one or both of these values fall below  the desired range, the pump and LED will be activated until the humidity and/or light levels rise above the top of the desired range. This process will be repeated for as long as the model is running, activating the pump and LED as neccessary to make sure the moisture and light levels promote healthy growth of the plant.
+
+The other aspect of this model is the set-up of the LCD screen. As of now, it doesn't take user inputs, but, in fact, displays the current humidity and light levels to the user. This allows the user to monitor their plant and also check to make sure that the software is functioning correctly. In the future, the LCD screen will be updated so that the user can type in their species of plant directly into LCD screen instead of the software model itself. 
+
+This is a description of how the software model for the Automatic Plant Maintainence Device works. Unfortunately, it was never tested using the actual hardware and random numbers were generated to test its feasbility. 
